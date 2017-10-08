@@ -5,6 +5,7 @@
     <class>com.icult.model.CartaoDeCredito</class>
     <class>com.icult.model.Produto</class>
     <class>com.icult.model.Usuario</class>
+    <class>com.icult.model.Pedido</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>

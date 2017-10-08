@@ -66,7 +66,15 @@ public class Usuario implements Serializable {
                 @JoinColumn(name = "ID_PRODUTO")
             })
     private List<Produto> produtos;
-    
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "TB_USUARIO_PEDIDO", joinColumns = {
+        @JoinColumn(name = "ID_USUARIO")},
+            inverseJoinColumns = {
+                @JoinColumn(name = "ID_PEDIDO")
+            })
+    private List<Pedido> pedidos;
+
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CartaoDeCredito> cartaos;
 
@@ -117,7 +125,14 @@ public class Usuario implements Serializable {
     public void setCartaos(List<CartaoDeCredito> cartaos) {
         this.cartaos = cartaos;
     }
-    
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
     
 
 }
