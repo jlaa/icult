@@ -46,7 +46,7 @@ public class Usuario implements Serializable {
 
     @NotBlank
     @Size(max = 30)
-    @Column(name = "TXT_EMAIL", nullable = false)
+    @Column(name = "TXT_NOME", nullable = false)
     private String nome;
 
     @NotBlank
