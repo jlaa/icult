@@ -1,9 +1,12 @@
 com\icult\model\CartaoDeCredito.class
 com\icult\model\CartaoDeCredito_.class
+com\icult\controller\HomeServlet.class
+com\icult\model\Endereco.class
+com\icult\controller\RegisterUsuarioServlet.class
 com\icult\model\Endereco_.class
 com\icult\model\Usuario_.class
+com\icult\controller\LoginUsuarioServlet.class
 com\icult\model\Aplicacao.class
-com\icult\model\Endereco.class
 com\icult\model\Produto.class
 com\icult\model\Produto_.class
 com\icult\model\Usuario.class

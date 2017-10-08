@@ -22,7 +22,7 @@ import javax.validation.Valid;
  * @author kalango
  */
 @Entity
-@Table(name="Cliente_Table")
+@Table(name="PEDIDO_TABLE")
 public class Pedido implements Serializable{
     
     @Id
