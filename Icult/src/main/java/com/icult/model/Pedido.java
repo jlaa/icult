@@ -16,26 +16,34 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.Valid;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
  * @author kalango
  */
 @Entity
-@Table(name="Cliente_Table")
+@Table(name="Pedido_Table")
 public class Pedido implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name="INT_ID")
-    private Long idCLiente;
-    @Column(name="TXT_VALORTOTAL")
+    private Long idPedido;
+    
+    @NotBlank
+    @Column(name="TXT_VALORTOTAL", nullable=false)
     private String valor_total;
-    @Column(name="TXT_DESCONTO")
+    
+    @Column(name="TXT_DESCONTO", nullable=true)
     private String desconto;
-    @Column(name="TXT_FRETE")
+    
+    @NotBlank
+    @Column(name="TXT_FRETE", nullable=false)
     private String valor_frete;
-    @Column(name="TXT_QUANTIDADE")
+    
+    @NotBlank
+    @Column(name="TXT_QUANTIDADE", nullable=false)
     private String quantidade;
     
     @Embedded
@@ -46,11 +54,11 @@ public class Pedido implements Serializable{
     private List<Usuario> usuarios;
     
     public Long getIdCLiente() {
-        return idCLiente;
+        return idPedido;
     }
 
-    public void setIdCLiente(Long idCLiente) {
-        this.idCLiente = idCLiente;
+    public void setIdCLiente(Long idPedido) {
+        this.idPedido = idPedido;
     }
 
     public String getValor_total() {

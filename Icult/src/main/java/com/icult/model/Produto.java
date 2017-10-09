@@ -20,6 +20,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -34,6 +35,8 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name="PRODUTO_TABLE")
 @Access(AccessType.FIELD)
+@NamedQuery(name = "Produto.listarTodos",
+                  query= "SELECT e FROM Produto e")
 public class Produto implements Serializable
 {
     @Id
@@ -64,6 +67,14 @@ public class Produto implements Serializable
     @ManyToMany(mappedBy="produtos")
     private List<Usuario> usuarios;
 
+    public Produto(String nome_produto, Calendar data_de_cadastro, String caracteristicas, double preco, int quantidade) {
+        this.nome_produto = nome_produto;
+        this.data_de_cadastro = data_de_cadastro;
+        this.caracteristicas = caracteristicas;
+        this.preco = preco;
+        this.quantidade = quantidade;
+    }
+    
     public String getNome_produto() {
         return nome_produto;
     }
