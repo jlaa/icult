@@ -155,6 +155,22 @@ public class Usuario implements Serializable {
         this.senha=senha;
         this.nickname=nickname;
     }
+
+    public Long getId() {
+        return id;
+    }
+  
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+    
+    
+    
     
     
     

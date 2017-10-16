@@ -46,11 +46,11 @@ public class LoginUsuarioServlet extends HttpServlet {
         if (usuario != null) {
             session.setAttribute("usuarioAtual", usuario);
             session.setAttribute("username", usuario.getNickName());
-            RequestDispatcher dispatcher = request.getRequestDispatcher("View/Logado.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("View/Logado.jsp?faces-redirect=true");
             dispatcher.forward(request, response);
         } else {
             session.setAttribute("error", "Email ou senha errados");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("View/Login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("View/Login.jsp?faces-redirect=true");
             dispatcher.forward(request, response);
         }
 

@@ -1,4 +1,5 @@
 
+<%@page import="com.icult.model.Usuario"%>
 <%-- 
     Document   : RegisterUsuario
     Created on : 08/10/2017, 08:45:19
@@ -25,8 +26,21 @@
                 <input type="text" name="nickname" value="<%=request.getAttribute("username")%>" required>    
                 <br>
                 <br>
-                <input type="submit" value="enviar" name="Alterar">
+                <input type="submit" value="Alterar" name="alterar">                
             </form>
+            <form action="CadastrarCartaoServlet" method="post">
+                <input type="submit" value="Cadastrar Cartão" name="cartaoEnviar">
+                <br>
+                <br>
+            </form>
+
+            <%HttpSession sessao = request.getSession();
+                Usuario usuario = (Usuario) sessao.getAttribute("usuarioAtual");
+                if (!usuario.getCartaos().isEmpty()) {%>
+            <form action="AlterarCartaoServlet" method="post">
+                <input type="submit" value="Alterar Cartão" name="cartaoAlterar">
+            </form>
+            <%}%>
         </div>
     </body>
 </html>

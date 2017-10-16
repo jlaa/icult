@@ -32,37 +32,49 @@ import javax.validation.constraints.Size;
  * @author LucasPC
  */
 @Entity
-@Table(name="PRODUTO_TABLE")
+@Table(name = "PRODUTO_TABLE")
 @Access(AccessType.FIELD)
-public class Produto implements Serializable
-{
+public class Produto implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_PRODUTO")
     private Long id;
-    
-    @Size(max=45)
-    @Column(name="TXT_NOME_PRODUTO",nullable = false)
+
+    @Size(max = 45)
+    @Column(name = "TXT_NOME_PRODUTO", nullable = false)
     private String nome_produto;
-    
+
     @Temporal(TemporalType.DATE)
     @Past
-    @Column(name="DT_DE_CADASTRO",nullable=false)
+    @Column(name = "DT_DE_CADASTRO", nullable = false)
     private Calendar data_de_cadastro;
-    
-    @Size(max=45)
-    @Column(name="TXT_CARACTERISTICAS",nullable=false)
+
+    @Size(max = 45)
+    @Column(name = "TXT_CARACTERISTICAS", nullable = false)
     private String caracteristicas;
-    
-    @Column(name="DOUBLE_PRECO",nullable=false)
+
+    @Column(name = "DOUBLE_PRECO", nullable = false)
     private double preco;
-    
-    @Column(name="INT_QUANTIDADE",nullable=false)
+
+    @Column(name = "INT_QUANTIDADE", nullable = false)
     private int quantidade;
-   
+
     @Valid
-    @ManyToMany(mappedBy="produtos")
+    @ManyToMany(mappedBy = "produtos")
     private List<Usuario> usuarios;
+
+    public Produto() {
+
+    }
+
+    public Produto(String nome_produto, Calendar data_de_cadastro, String caracteristicas, double preco, int quantidade) {
+        this.nome_produto = nome_produto;
+        this.data_de_cadastro = data_de_cadastro;
+        this.caracteristicas = caracteristicas;
+        this.preco = preco;
+        this.quantidade = quantidade;
+    }
 
     public String getNome_produto() {
         return nome_produto;
@@ -111,9 +123,5 @@ public class Produto implements Serializable
     public void setUsuarios(List<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
-    
-    
-    
-    
-    
+
 }

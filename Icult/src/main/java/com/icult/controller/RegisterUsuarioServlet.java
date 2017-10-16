@@ -40,10 +40,10 @@ public class RegisterUsuarioServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         if (request.getParameter("Enviar") == null) {
-            RequestDispatcher view = request.getRequestDispatcher("View/RegisterUsuario.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("View/RegisterUsuario.jsp?faces-redirect=true");
             view.forward(request, response);
         } else{
-            RequestDispatcher view = request.getRequestDispatcher("View/Home.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("View/Home.jsp?faces-redirect=true");
             String username = request.getParameter("nickname");
             String password = request.getParameter("psw");
             String email = request.getParameter("email");

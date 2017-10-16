@@ -38,14 +38,14 @@ public class AlterarUsuarioServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession(false);
-        if (request.getParameter("Alterar") == null) {
-            RequestDispatcher view = request.getRequestDispatcher("View/AlterarUsuario.jsp");
+        if (request.getParameter("alterar") == null) {
+            RequestDispatcher view = request.getRequestDispatcher("View/AlterarUsuario.jsp?faces-redirect=true");
             Usuario usuario =(Usuario)session.getAttribute("usuarioAtual");
             request.setAttribute("username",usuario.getNickName());           
             request.setAttribute("name",usuario.getNome());                    
             view.forward(request, response);
         }else {        
-            RequestDispatcher view = request.getRequestDispatcher("View/Logado.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("View/Logado.jsp?faces-redirect=true");
             String username = request.getParameter("nickname");
             String nome = request.getParameter("name");
             request.setAttribute("cadastro", "ok");

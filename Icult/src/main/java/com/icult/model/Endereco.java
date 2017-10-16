@@ -14,7 +14,8 @@ import javax.persistence.Embeddable;
  */
 @Embeddable
 public class Endereco implements Serializable{
-
+    
+    
     @Column(name="TXT_CEP")
     private String cep;
     @Column(name="TXT_LOGRADOURO")

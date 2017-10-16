@@ -32,7 +32,7 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        RequestDispatcher view = request.getRequestDispatcher("View/Home.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("View/Home.jsp?faces-redirect=true");
         view.forward(request, response);
     }
 
