@@ -43,11 +43,10 @@ public class ProdutoController extends HttpServlet {
             throws ServletException, IOException {
         
          HttpSession session = request.getSession();
-         
-        Usuario usuarioId = (Usuario) session.getAttribute("usuarioAtual");
+         Usuario usuarioId = (Usuario) session.getAttribute("usuarioAtual");
         //int id = (int) usuarioId.getId_usuario();
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("produto.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("View/Produto.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -88,3 +87,4 @@ public class ProdutoController extends HttpServlet {
     }// </editor-fold>
 
 }
+

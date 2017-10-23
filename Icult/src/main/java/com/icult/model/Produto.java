@@ -39,6 +39,9 @@ import javax.validation.constraints.Size;
                   query= "SELECT e FROM Produto e")
 public class Produto implements Serializable
 {
+
+    public Produto() {
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_PRODUTO")

@@ -20,8 +20,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Future;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
+
 
 /**
  *
@@ -31,7 +35,7 @@ import javax.validation.constraints.Size;
 @Table(name = "CARTAO_TABLE")
 @Access(AccessType.FIELD)
 public class CartaoDeCredito implements Serializable {
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_CARTAO")
@@ -41,7 +45,7 @@ public class CartaoDeCredito implements Serializable {
     @Column(name = "TXT_NOME_DO_DONO", nullable = false)
     private String nome_do_dono;
 
-    @Size(max = 3)
+    @Digits(integer = 3,fraction = 0)
     @Column(name = "INT_CODIGO_DE_SEGURANCA", nullable = false)
     private int codigo_de_seguranca;
 
@@ -61,7 +65,16 @@ public class CartaoDeCredito implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_CARTAO_USUARIO", referencedColumnName = "ID_USUARIO")
     private Usuario usuario;
-
+    
+    public void cadastrarCartao(String nome_do_dono,int codigo_de_seguranca,
+            Calendar data_de_validade,String bandeira, String numero_cartao)
+    {
+        this.nome_do_dono=nome_do_dono;
+        this.codigo_de_seguranca = codigo_de_seguranca;
+        this.data_de_validade = data_de_validade;
+        this.bandeira =  bandeira;
+        this.numero_cartao = numero_cartao;
+    }
     public String getNome_do_dono() {
         return nome_do_dono;
     }
@@ -109,6 +122,13 @@ public class CartaoDeCredito implements Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+        
+    
     
 
 }

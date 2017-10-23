@@ -38,26 +38,31 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_USUARIO", nullable = false)
     private Long id;
-
-    @Email
+    
     @NotBlank
+    @Email
     @Column(name = "TXT_EMAIL", nullable = false)
     private String email;
 
     @NotBlank
-    @Size(max = 30)
+    @Size(max = 60)
     @Column(name = "TXT_NOME", nullable = false)
     private String nome;
-
+    
     @NotBlank
     @Size(max = 15)
     @Column(name = "TXT_CPF", nullable = false)
     private String cpf;
-
+    
     @NotBlank
-    @Size(min = 6)
+    @Size(min = 6,max=20)
     @Column(name = "TXT_SENHA", nullable = false)
     private String senha;
+    
+    @NotBlank
+    @Size(min=3,max=15)
+    @Column(name="TXT_LOGIN",nullable=false)
+    private String nickname;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "TB_USUARIO_PRODUTO", joinColumns = {
@@ -133,6 +138,41 @@ public class Usuario implements Serializable {
     public void setPedidos(List<Pedido> pedidos) {
         this.pedidos = pedidos;
     }
+
+    public String getNickName() {
+        return this.nickname;
+    }
+
+    public void setLogin(String nickname) {
+        this.nickname = nickname;
+    }
+    
+    public void CadastrarUsuario(String email,String nome, String cpf, String senha,String nickname)
+    {
+        this.email=email;
+        this.nome=nome;
+        this.cpf=cpf;
+        this.senha=senha;
+        this.nickname=nickname;
+    }
+
+    public Long getId() {
+        return id;
+    }
+  
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+    
+    
+    
+    
+    
     
 
 }
